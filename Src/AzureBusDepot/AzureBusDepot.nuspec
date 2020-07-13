@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>safestak-keith</authors>
+    <owners>safestak-keith</owners>
+    <id>AzureBusDepot</id>
+    <title>Azure Bus Depot</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/keithnut/AzureBusDepot</projectUrl>
+    <description>
+      A compact, opinioned but extensible .Net Standard SDK for Azure Service Bus which aims to tackle the common cross-cutting concerns around handling typed messages.
+    </description>
+    <tags>netstandard,azure,servicebus,azureservicebus</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.ApplicationInsights" version="2.9.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Azure.ServiceBus" version="4.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting.Abstractions" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging" version="2.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <copyright></copyright>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\netstandard2.0\AzureBusDepot*" target="lib\netstandard2.0" />
+  </files>
+</package>
