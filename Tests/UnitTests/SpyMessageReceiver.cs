@@ -161,5 +161,10 @@ namespace AzureBusDepot.UnitTests
         {
             throw new NotImplementedException();
         }
+
+        public Task UnregisterMessageHandlerAsync(TimeSpan inflightMessageHandlerTasksWaitTimeout)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

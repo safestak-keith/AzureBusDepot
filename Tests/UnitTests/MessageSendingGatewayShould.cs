@@ -232,29 +232,29 @@ namespace AzureBusDepot.UnitTests
         }
 
         [Fact]
-        public void ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_Message()
+        public async Task ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_Message()
         {
             _mockSender.Setup(s => s.SendAsync(It.IsAny<Message>())).ThrowsAsync(new DivideByZeroException());
 
             Func<Task> sendAction = async () => await _outboundGateway.SendAsync(MyEvent.Default).ConfigureAwait(false);
 
-            sendAction.Should().Throw<DivideByZeroException>();
+            await sendAction.Should().ThrowAsync<DivideByZeroException>();
         }
 
         [Fact]
-        public void ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_OutboundMessage()
+        public async Task ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_OutboundMessage()
         {
             _mockSender.Setup(s => s.SendAsync(It.IsAny<Message>())).ThrowsAsync(new DivideByZeroException());
 
             Func<Task> sendAction = async () => await _outboundGateway.SendAsync(OutboundMessage<MyEvent>.FromEntity(MyEvent.Default)).ConfigureAwait(false);
 
-            sendAction.Should().Throw<DivideByZeroException>();
+            await sendAction.Should().ThrowAsync<DivideByZeroException>();
         }
 
         [Theory]
         [InlineData(7)]
         [InlineData(23)]
-        public void ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_Multiple_OutboundMessages(int count)
+        public async Task ReThrows_Exception_Given_Unhandled_Exception_Is_Thrown_When_Sending_Multiple_OutboundMessages(int count)
         {
             var outboundMessages = Enumerable.Range(0, count)
                 .Select(i => new OutboundMessage<MyEvent>(new MyEvent { Id = i, Name = i.ToString() }))
@@ -263,7 +263,7 @@ namespace AzureBusDepot.UnitTests
 
             Func<Task> sendAction = async () => await _outboundGateway.SendMultipleAsync(outboundMessages).ConfigureAwait(false);
 
-            sendAction.Should().Throw<DivideByZeroException>();
+            await sendAction.Should().ThrowAsync<DivideByZeroException>();
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 
 namespace AzureBusDepot.ApplicationInsights
 {
@@ -18,10 +17,7 @@ namespace AzureBusDepot.ApplicationInsights
             _telemetryClient = telemetryClient;
         }
 
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            return NullScope.Instance;
-        }
+        public IDisposable BeginScope<TState>(TState state) => default!;
 
         public bool IsEnabled(LogLevel logLevel)
         {

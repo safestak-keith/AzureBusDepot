@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 
 namespace AzureBusDepot.UnitTests
 {
@@ -15,15 +14,9 @@ namespace AzureBusDepot.UnitTests
             _recordedEntries.Add((logLevel, eventId, exception));
         }
 
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            return true;
-        }
+        public bool IsEnabled(LogLevel logLevel) => true;
 
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            return NullScope.Instance;
-        }
+        public IDisposable BeginScope<TState>(TState state) => default!;
 
         public bool HasExceptionBeenLogged(LogLevel level, EventId eventId, Exception ex)
         {

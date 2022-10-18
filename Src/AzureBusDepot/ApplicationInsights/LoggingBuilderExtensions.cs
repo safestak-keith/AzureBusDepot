@@ -5,7 +5,7 @@ namespace AzureBusDepot.ApplicationInsights
 {
     public static class LoggingBuilderExtensions
     {
-        public static ILoggingBuilder AddApplicationInsights(this ILoggingBuilder loggingBuilder)
+        public static ILoggingBuilder AddBusDepotApplicationInsights(this ILoggingBuilder loggingBuilder)
         {
             loggingBuilder.Services.AddSingleton<ILoggerProvider, ApplicationInsightsLoggerProvider>();
             return loggingBuilder;
