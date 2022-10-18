@@ -66,7 +66,7 @@ namespace AzureBusDepot.Samples.NetCoreConsoleApp
                 {
                     logging.AddConfiguration(hostContext.Configuration.GetSection("Logging"));
                     logging.AddConsole();
-                    logging.AddApplicationInsights();
+                    logging.AddBusDepotApplicationInsights();
                 })
                 .UseConsoleLifetime();
 
