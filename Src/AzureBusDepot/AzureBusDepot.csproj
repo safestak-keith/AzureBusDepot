@@ -11,7 +11,7 @@
     <Description>A compact, opinioned but extensible .Net Standard SDK for Azure Service Bus which aims to tackle the common cross-cutting concerns around handling typed messages.</Description>
     <Copyright></Copyright>
     <Company></Company>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <PackageProjectUrl>nuget</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SafeStak/AzureBusDepot</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
